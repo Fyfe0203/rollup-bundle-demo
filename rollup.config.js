@@ -18,7 +18,7 @@ export default {
             name: 'types',
             async renderStart({ file }) {
                 await fs.outputFile(ps.join(ps.dirname(file), 'package.json'), `{ "type": "module" }\n`, 'utf8');
-                await fs.copyFile(file.replace(/\.js$/, '.d.ts'), ps.join(__dirname, './index.d.ts'));
+                await fs.copyFile(ps.join(__dirname, './index.d.ts'), file.replace(/\.js$/, '.d.ts'));
             },
         },
     ],
